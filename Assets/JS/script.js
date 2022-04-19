@@ -59,7 +59,6 @@ function weatherData(cityInput) {
    
     })
     .then(function (data) {
-        
         console.log(data);
         console.log(data[0].lat);
         var lat = data[0].lat;
@@ -76,9 +75,12 @@ function weatherData(cityInput) {
         .then(function (data) {
             console.log(data);
         // you use . since these are all objects and not arrays anymore
-
+        // var weatherID = data.current.weather.icon;
+        // console.log(weatherID);
+        var date = data.current.dt;
+        console.log(date);
         var temp = data.current.temp;
-        currentTemp.textContent = "Temp: " + temp;
+        currentTemp.textContent = "Temp: " + temp ;
         var wind = data.current.wind_speed;
         console.log(wind);
         currentWind.textContent = "Wind: " + wind + " MPH";
@@ -86,8 +88,10 @@ function weatherData(cityInput) {
         currentHumidity.textContent = "Humidity: " + humidity + "%";
         var uv = data.current.uvi;
         currentUv.textContent = "UV Index: " + uv;
+     
 
-        
+
+
         
 
         
@@ -101,9 +105,3 @@ function weatherData(cityInput) {
 
 
 
-//i can query select the class for the cards which will return an array to run in for loop with i=0
-// weatherData(weatherApiUrl);
-//make a request to the one call and show them howw to make api key
-// fetch coordinates
-// fetch weather
-//functio renderitems(city,data) {}
