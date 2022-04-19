@@ -6,6 +6,8 @@ var cityInput;
 
 //DOM references
 var searchForm = document.querySelector("#search-form");
+var cityHeading = document.querySelector(".city");
+
 
 // var todayBox =
 // var forecastBox =
@@ -24,7 +26,9 @@ var savedCities = [];
 function citySubmit(event) {
   event.preventDefault();
   cityInput = document.getElementById("search-input").value;
+
   weatherData(cityInput);
+  cityHeading.textContent = cityInput;
 
   // create local storage 
   // get local storage 
@@ -46,6 +50,7 @@ function weatherData(cityInput) {
   fetch(geoUrl)
     .then(function (response) {
       return response.json();
+   
     })
     .then(function (data) {
         
@@ -65,9 +70,10 @@ function weatherData(cityInput) {
         .then(function (data) {
             console.log(data);
         // you use . since these are all objects and not arrays anymore
+
         var clouds = data.current.clouds
         console.log(clouds);
-            
+        
         })
     });
     
