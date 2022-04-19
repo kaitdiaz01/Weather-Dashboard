@@ -7,6 +7,12 @@ var cityInput;
 //DOM references
 var searchForm = document.querySelector("#search-form");
 var cityHeading = document.querySelector(".city");
+var currentTemp = document.querySelector(".current-temp");
+var currentWind = document.querySelector(".current-wind");
+var currentHumidity = document.querySelector(".current-humidity");
+var currentUv = document.querySelector(".current-uv");
+
+
 
 
 // var todayBox =
@@ -61,7 +67,7 @@ function weatherData(cityInput) {
         var lon = data[0].lon;
 
 
-        var weatherApiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`
+        var weatherApiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`
         fetch(weatherApiUrl)
         .then(function (response) {
             //turns response into javascript object notation
@@ -71,8 +77,19 @@ function weatherData(cityInput) {
             console.log(data);
         // you use . since these are all objects and not arrays anymore
 
-        var clouds = data.current.clouds
-        console.log(clouds);
+        var temp = data.current.temp;
+        currentTemp.textContent = "Temp: " + temp;
+        var wind = data.current.wind_speed;
+        console.log(wind);
+        currentWind.textContent = "Wind: " + wind + " MPH";
+        var humidity = data.current.humidity;
+        currentHumidity.textContent = "Humidity: " + humidity + "%";
+        var uv = data.current.uvi;
+        currentUv.textContent = "UV Index: " + uv;
+
+        
+        
+
         
         })
     });
