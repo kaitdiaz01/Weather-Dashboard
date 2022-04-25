@@ -11,6 +11,18 @@ header {
 
 h1 {
     color: white;
-    font-family: ;
 }
 
+h1.city {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+#custom-card {
+    background-color: #33475A;
+    color: white;
+}
+
+.card-body {
+    padding: 0.25rem;
+}
