@@ -38,7 +38,6 @@ function citySubmit(event) {
   localStorage.setItem("city", JSON.stringify(savedCities));
   JSON.parse(localStorage.getItem("city"));
 
-  
   var city = document.getElementById("search-input").value;
   var searchedCity = $(`
   <li class="list-group-item">${city}</li>
@@ -49,7 +48,7 @@ function citySubmit(event) {
 submitBtn.addEventListener("click", citySubmit);
 
 function weatherData(cityInput) {
-  var geoUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${cityInput}}&limit=5&appid=${apiKey}`;
+  var geoUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${cityInput}}&limit=5&appid=${apiKey}`;
 
   fetch(geoUrl)
     .then(function (response) {
